@@ -1,0 +1,72 @@
+.auth-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(34, 197, 94, 0.14), transparent 26%),
+    radial-gradient(circle at top right, rgba(25, 135, 84, 0.1), transparent 24%),
+    linear-gradient(180deg, #f5faf5 0%, #eef6ee 100%);
+}
+
+.auth-brand {
+  color: #14532d;
+}
+
+.auth-brand-icon {
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #22c55e, #198754);
+  box-shadow: 0 16px 30px rgba(25, 135, 84, 0.2);
+  font-size: 1.5rem;
+}
+
+.auth-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 1rem 0 0.5rem;
+}
+
+.auth-subtitle {
+  color: #6b7280;
+  margin-bottom: 0;
+}
+
+.auth-card {
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
+}
+
+.auth-card .form-control {
+  border-radius: 16px;
+  border-color: rgba(25, 135, 84, 0.15);
+  padding: 0.9rem 1rem;
+}
+
+.auth-card .form-control:focus {
+  border-color: rgba(25, 135, 84, 0.45);
+  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+}
+
+.auth-submit {
+  border-radius: 16px;
+  font-weight: 700;
+  padding: 0.9rem 1.2rem;
+}
+
+.auth-switch {
+  color: #6b7280;
+}
+
+.auth-switch a {
+  color: #198754;
+  font-weight: 700;
+}
+
+.dashboard-info {
+  border-radius: 18px;
+}
