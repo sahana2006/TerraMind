@@ -40,7 +40,7 @@ export default function DashboardNavbar({ collapsed, onToggleSidebar, onOpenMobi
           <FiMenu />
         </Button>
 
-        <Navbar.Brand href="/dashboard" className="dashboard-brand">
+        <Navbar.Brand as={Link} to="/dashboard" className="dashboard-brand">
           <span className="dashboard-brand__mark">
             <FaSeedling />
           </span>

@@ -5,11 +5,11 @@ import { FaSeedling } from "react-icons/fa6";
 export default function SidebarNav({ items, collapsed = false, onNavigate }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const navigablePaths = new Set(["/dashboard", "/farms", "/profile"]);
 
   const handleItemClick = (item) => {
     onNavigate?.(item);
-
-    if (item.href === "/dashboard" || item.href === "/profile") {
+    if (navigablePaths.has(item.href)) {
       navigate(item.href);
     }
   };
