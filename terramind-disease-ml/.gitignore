@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.log
+*.keras
+*.h5
+*.weights.h5
+dataset/_splits/
+generated_splits/
+models/
+dataset/

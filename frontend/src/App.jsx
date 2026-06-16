@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-d
 import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
 import Dashboard from "./pages/Dashboard";
+import DiseaseDetectionPage from "./pages/DiseaseDetectionPage";
 import FarmsPage from "./pages/FarmsPage";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
@@ -32,6 +33,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <FarmsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/disease-detection"
+            element={
+              <ProtectedRoute>
+                <DiseaseDetectionPage />
               </ProtectedRoute>
             }
           />

@@ -1,0 +1,8 @@
+{
+  "f1_score": 0.909145,
+  "num_classes": 15,
+  "num_test_samples": 2070,
+  "precision": 0.914026,
+  "recall": 0.908696,
+  "test_accuracy": 0.908696
+}

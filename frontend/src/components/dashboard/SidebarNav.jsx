@@ -5,7 +5,7 @@ import { FaSeedling } from "react-icons/fa6";
 export default function SidebarNav({ items, collapsed = false, onNavigate }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const navigablePaths = new Set(["/dashboard", "/farms", "/weather", "/profile"]);
+  const navigablePaths = new Set(["/dashboard", "/farms", "/disease-detection", "/weather", "/profile"]);
 
   const handleItemClick = (item) => {
     onNavigate?.(item);
