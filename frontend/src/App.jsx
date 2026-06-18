@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-d
 import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
 import Dashboard from "./pages/Dashboard";
+import CropAdvisoryPage from "./pages/CropAdvisoryPage";
 import DiseaseDetectionPage from "./pages/DiseaseDetectionPage";
 import FarmsPage from "./pages/FarmsPage";
 import LandingPage from "./pages/LandingPage";
@@ -41,6 +42,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <DiseaseDetectionPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/crop-advisory"
+            element={
+              <ProtectedRoute>
+                <CropAdvisoryPage />
               </ProtectedRoute>
             }
           />
