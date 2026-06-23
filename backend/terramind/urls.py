@@ -24,4 +24,6 @@ urlpatterns = [
     path("api/crop-advisory/", include("apps.crop_advisory.urls")),
     path("api/farms/", include("apps.farms.urls")),
     path("api/weather/", include("apps.weather.urls")),
+    path("api/", include("apps.ai_advisor.urls")),
 ]
+

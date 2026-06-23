@@ -52,10 +52,7 @@ INSTALLED_APPS = [
     "apps.disease_detection",
     "apps.crop_advisory",
     "apps.weather",
-    "apps.rag",
-    "apps.agents",
-    "apps.market_prediction",
-    "apps.yield_prediction",
+    "apps.ai_advisor",
 ]
 
 MIDDLEWARE = [
@@ -179,3 +176,17 @@ CORS_ALLOWED_ORIGINS = config(
     cast=Csv(),
 )
 CORS_ALLOW_CREDENTIALS = True
+
+AI_ADVISOR_DATA_DIR = config("AI_ADVISOR_DATA_DIR", default=str(BASE_DIR / "apps" / "ai_advisor" / "data"))
+AI_ADVISOR_VECTOR_DB_DIR = config(
+    "AI_ADVISOR_VECTOR_DB_DIR",
+    default=str(BASE_DIR / "apps" / "ai_advisor" / "vector_db"),
+)
+AI_ADVISOR_COLLECTION_NAME = config("AI_ADVISOR_COLLECTION_NAME", default="terramind_ai_advisor")
+AI_ADVISOR_CHUNK_SIZE = config("AI_ADVISOR_CHUNK_SIZE", default=1000, cast=int)
+AI_ADVISOR_CHUNK_OVERLAP = config("AI_ADVISOR_CHUNK_OVERLAP", default=200, cast=int)
+AI_ADVISOR_RETRIEVER_K = config("AI_ADVISOR_RETRIEVER_K", default=5, cast=int)
+AI_ADVISOR_LLM_MODEL = config("AI_ADVISOR_LLM_MODEL", default="gemini-2.5-flash")
+
+
+

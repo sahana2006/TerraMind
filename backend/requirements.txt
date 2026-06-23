@@ -1,4 +1,4 @@
-﻿absl-py==2.2.2
+absl-py==2.2.2
 aiohappyeyeballs==2.6.1
 aiohttp==3.12.13
 aiosignal==1.3.2
@@ -216,4 +216,12 @@ WTForms==3.2.1
 yarl==1.20.1
 zipp==3.23.0
 zstandard==0.23.0
+chromadb
+google-generativeai
+langchain-chroma
 
+
+langchain-huggingface
+sentence-transformers
+transformers
+langchain-google-genai
