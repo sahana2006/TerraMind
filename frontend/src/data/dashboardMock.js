@@ -18,8 +18,5 @@ export const sidebarItems = [
   { label: "Crop Advisory", href: "/crop-advisory", icon: FaClipboardCheck },
   { label: "Weather", href: "/weather", icon: FaCloudRain },
   { label: "AI Assistant", href: "/assistant", icon: FaRobot },
-  { label: "Yield Prediction", href: "/yield-prediction", icon: FaArrowTrendUp },
-  { label: "Market Prediction", href: "/market-prediction", icon: FaCubesStacked },
-  { label: "Analytics", href: "/analytics", icon: FaMicrochip },
   { label: "Profile", href: "/profile", icon: FaShieldHeart },
 ];
