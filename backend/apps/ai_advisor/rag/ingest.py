@@ -26,7 +26,10 @@ def get_embeddings() -> HuggingFaceEmbeddings:
 
     global _embeddings
     if _embeddings is None:
-        _embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL_NAME)
+        _embeddings = HuggingFaceEmbeddings(
+            model_name=EMBEDDING_MODEL_NAME,
+            model_kwargs={"local_files_only": True},
+        )
     return _embeddings
 
 
