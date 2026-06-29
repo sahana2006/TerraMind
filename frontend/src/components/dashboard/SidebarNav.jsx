@@ -1,4 +1,4 @@
-import { Nav } from "react-bootstrap";
+﻿import { Nav } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaSeedling } from "react-icons/fa6";
 
@@ -10,6 +10,7 @@ export default function SidebarNav({ items, collapsed = false, onNavigate }) {
     "/farms",
     "/disease-detection",
     "/crop-advisory",
+    "/assistant",
     "/weather",
     "/profile",
   ]);

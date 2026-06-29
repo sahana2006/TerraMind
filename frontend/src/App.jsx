@@ -1,15 +1,16 @@
-import React from "react";
+﻿import React from "react";
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
-import Dashboard from "./pages/Dashboard";
+import AIChatbotPage from "./pages/AIChatbotPage";
 import CropAdvisoryPage from "./pages/CropAdvisoryPage";
+import Dashboard from "./pages/Dashboard";
 import DiseaseDetectionPage from "./pages/DiseaseDetectionPage";
 import FarmsPage from "./pages/FarmsPage";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import Register from "./pages/Register";
 import WeatherPage from "./pages/WeatherPage";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
@@ -50,6 +51,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <CropAdvisoryPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/assistant"
+            element={
+              <ProtectedRoute>
+                <AIChatbotPage />
               </ProtectedRoute>
             }
           />
