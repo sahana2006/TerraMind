@@ -7,15 +7,15 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .rag.chatbot import AIAdvisorConfigurationError, AIAdvisorRAGError, generate_answer
-from .rag.errors import AIAdvisorVectorStoreError
+from .graph.workflow import invoke_advisor_workflow
+from .rag.errors import AIAdvisorConfigurationError, AIAdvisorRAGError, AIAdvisorVectorStoreError
 from .serializers import ChatRequestSerializer
 
 logger = logging.getLogger(__name__)
 
 
 class ChatAPIView(APIView):
-    """POST endpoint for TerraMind's agricultural RAG assistant."""
+    """POST endpoint for TerraMind's agricultural advisor."""
 
     permission_classes = [AllowAny]
 
@@ -23,8 +23,10 @@ class ChatAPIView(APIView):
         serializer = ChatRequestSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
+        user_id = request.user.id if request.user.is_authenticated else None
+
         try:
-            result = generate_answer(serializer.validated_data["message"])
+            result = invoke_advisor_workflow(serializer.validated_data["message"], user_id=user_id)
         except AIAdvisorConfigurationError as exc:
             logger.exception("AI Advisor misconfigured")
             return Response({"detail": str(exc)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

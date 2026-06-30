@@ -5,8 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Mapping
 
-from .risk_engine import WeatherRiskEngine
-from .weather_alerts import WeatherAlertEngine
+
 from .weather_service import WeatherService, WeatherServiceError
 
 
@@ -23,14 +22,10 @@ class WeatherIntelligenceEngine:
         current_weather = WeatherService.get_current_weather(self.latitude, self.longitude)
         forecast = WeatherService.get_intelligence_forecast(self.latitude, self.longitude)
 
-        risk_engine = WeatherRiskEngine(forecast)
-        alert_engine = WeatherAlertEngine(forecast)
 
         return {
             "current_weather": current_weather,
             "forecast": forecast,
-            "risks": risk_engine.generate_risk_report(),
-            "alerts": alert_engine.generate_alerts(),
         }
 
 

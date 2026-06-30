@@ -1,15 +1,9 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import logging
 import shutil
 from pathlib import Path
 from typing import Iterable
-
-from langchain_chroma import Chroma
-from langchain_core.documents import Document
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from pypdf import PdfReader
 
 from .config import EMBEDDING_MODEL_NAME, get_config
 from .errors import AIAdvisorDataError
@@ -21,11 +15,13 @@ logger = logging.getLogger(__name__)
 _embeddings = None
 
 
-def get_embeddings() -> HuggingFaceEmbeddings:
+def get_embeddings():
     """Create the local HuggingFace embedding model once per process."""
 
     global _embeddings
     if _embeddings is None:
+        from langchain_huggingface import HuggingFaceEmbeddings
+
         _embeddings = HuggingFaceEmbeddings(
             model_name=EMBEDDING_MODEL_NAME,
             model_kwargs={"local_files_only": True},
@@ -38,6 +34,9 @@ def discover_pdf_files(data_dir: Path) -> list[Path]:
 
 
 def load_documents_from_pdfs(pdf_files: Iterable[Path], source_root: Path):
+    from langchain_core.documents import Document
+    from pypdf import PdfReader
+
     documents = []
     for pdf_path in pdf_files:
         reader = PdfReader(str(pdf_path))
@@ -55,6 +54,8 @@ def load_documents_from_pdfs(pdf_files: Iterable[Path], source_root: Path):
 
 
 def split_documents(documents):
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
+
     config = get_config()
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=config.chunk_size,
@@ -75,6 +76,8 @@ def build_vector_store() -> dict:
     We always delete and recreate the index so the Chroma collection matches the
     current embedding dimension and never mixes old vectors with the new model.
     """
+
+    from langchain_chroma import Chroma
 
     config = get_config()
     config.data_dir.mkdir(parents=True, exist_ok=True)

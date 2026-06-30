@@ -1,13 +1,10 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import logging
 from functools import lru_cache
 
-from langchain_chroma import Chroma
-
 from .config import get_config
 from .errors import AIAdvisorConfigurationError, AIAdvisorVectorStoreError
-from .ingest import get_embeddings
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +14,7 @@ def _has_persisted_artifacts(vector_db_dir) -> bool:
 
 
 @lru_cache(maxsize=1)
-def load_vector_store() -> Chroma:
+def load_vector_store():
     config = get_config()
     if not config.gemini_api_key:
         raise AIAdvisorConfigurationError(
@@ -30,6 +27,10 @@ def load_vector_store() -> Chroma:
         )
 
     try:
+        from langchain_chroma import Chroma
+
+        from .ingest import get_embeddings
+
         return Chroma(
             collection_name=config.collection_name,
             persist_directory=str(config.vector_db_dir),
